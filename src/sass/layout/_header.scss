@@ -1,9 +1,19 @@
-header{
-    display: flex;
-    background-color: #000;
-    align-items: center;
-    justify-content:center;
+.header{
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../img/hero/pika.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 96px;
+    
+}
+//pokemon_1
+.header__container{
+    background-color: $one;
     position: relative;
     width: 100vw;
     height: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
 }

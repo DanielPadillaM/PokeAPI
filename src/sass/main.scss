@@ -1,5 +1,8 @@
+@import './utilities/variables/variables';
+@import './components/buttons';
+@import './components/wrapper.scss';
+@import './layout/randomPokemon';
+@import './layout/generations';
+@import './layout/hero';
 @import './layout/header';
 @import './layout/nav';
-@import './components/buttons';
-@import './utilities/variables/variables';
-@import './layout/hero';

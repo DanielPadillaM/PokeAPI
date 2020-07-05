@@ -7,25 +7,52 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 </head>
 <body>
-    <header>
-        <img class="logo" src="./img/icon/pokemon.svg" alt="pokeball">
-        <nav >
-        <ul class="barra">
-            <li><a href="#">About</a></li>
-            <li><a href="#">Games</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Forums</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-         </nav>
-        <a class="shop" href="#"><button>Gallery</button></a>
-    </header>
-    <div class="hero">
-        <div class="hero__container">
-            <img src="./img/hero/pika.jpg" alt="">
-        </div>
-    </div>
 
+    <header class="header">
+        <div class="header__container">
+            <img class="logo" src="./img/icon/pokemon.svg" alt="pokeball">
+            <nav >
+            <ul class="barra">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Games</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Forums</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            </nav>
+            <a class="shop" href="#"><button>Gallery</button></a>
+        </div>
+    </header>
+    
+    
+
+    <main class="wrapper__body">
+        <div class="randomPokemon">
+            <h2 class="randomPokemon__title">Pick ur first Pokemon type for any generation </h2>
+            <div class="pokeball randomPokemon__one">
+                <div class="pokeball__slash"></div>
+            </div>
+            <div class="pokeball randomPokemon__two">
+                <div class="pokeball__slash"></div>
+            </div>
+            <div class="pokeball randomPokemon__three">
+                <div class="pokeball__slash"></div>
+            </div>
+        </div>
+    </main>
+    <section class=" wrapper__body generations">
+        <form>
+            <label for="pokemons">Choose a Pokemon:</label>
+            <select class="generations__list" name="pokemons" id="genga">
+            </select>
+          </form>
+          <div class="pokemonCard">
+              <img class="pokemonCard__img" src="#" alt="">
+              <p class="pokemonCard__text">name</p>
+          </div>
+    
+    </section>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./js/index.js"></script>
 </body>
 </html>

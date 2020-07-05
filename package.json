@@ -12,6 +12,9 @@
     "sass": "^1.26.9"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "normalize.css": "^8.0.1"
-  }
+  },
+  "repository": "https://github.com/ShacoCR/PokeAPI.git",
+  "author": "ShacoCR <66040629+ShacoCR@users.noreply.github.com>"
 }
