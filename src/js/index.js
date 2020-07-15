@@ -1,7 +1,4 @@
-import '../sass/main.scss';
-import {Pokes} from './models/Pokemons';
-
-
+import '../sass/main.scss'
 let pokemonOne = document.querySelector('.randomPokemon__one');
 let pokemonTwo = document.querySelector('.randomPokemon__two');
 let pokemonThree = document.querySelector('.randomPokemon__three');
@@ -109,12 +106,11 @@ const insertPokemon = (e)=>{
     const creategroup = ()=>{
         axios.get('https://pokeapi.co/api/v2/generation')
         .then((res)=>{
-            console.log(res)
             let optionGroup = document.createElement('optgroup')
             let genga = document.getElementById('genga')
             const frag = document.createDocumentFragment()
             const nam = res.data.results
-            console.log(res)
+
             for(res of nam){
             let htt = res.url
             switch (htt) {
@@ -187,18 +183,22 @@ const insertPokemon = (e)=>{
 creategroup()
 
 // constructor de pokemones
-
+class Pokes{
+    constructor(name,id,sprites,types){
+        this.name = name
+        this.id = id
+        this.sprites = sprites
+        this.type = types
+    }
+}
 //obtener numero random
 const randonNumber= (min, max)=> Math.round(Math.random() * (max - min) + min);
 
 //trivia variables
 const triviaContainer = document.querySelector('.pokemonTrivia');
-const URL = {
-    fireType : 'https://pokeapi.co/api/v2/type/10/',
-    grassType : "https://pokeapi.co/api/v2/type/12/",
-    waterType : "https://pokeapi.co/api/v2/type/11/"
-}
-
+const fireType = 'https://pokeapi.co/api/v2/type/10/';
+const grassType = "https://pokeapi.co/api/v2/type/12/";
+const waterType = "https://pokeapi.co/api/v2/type/11/";
 const triviaButton = document.querySelector('.pokemonTrivia__button');
 const triviaStart = document.querySelector('.pokemonTrivia__container');
 
@@ -217,6 +217,7 @@ const randomPokemonType = (e)=>{
             const sprites = res.data.sprites;
             const types = res.data.types[0].type.name;
             return pokemon = new Pokes(name,id,sprites,types);
+            
         })
     })
 }
@@ -246,18 +247,18 @@ const typeQuestion = (e)=>{
     question.appendChild(questionTitle)
     question.appendChild(answer)
 
-    randomPokemonType(URL.fireType)
+    randomPokemonType(fireType)
     .then((e)=>{
     let sprites = e.sprites.front_default
     question.appendChild(createPoke('pokemon1',sprites,'re2'))
     })
 
-    randomPokemonType(URL.grassType)
+    randomPokemonType(grassType)
     .then((e)=>{
         let sprites = e.sprites.front_default
         question.appendChild(createPoke('pokemon2',sprites,'re1'))
         })
-        randomPokemonType(URL.waterType)
+        randomPokemonType(waterType)
     .then((e)=>{
         let sprites = e.sprites.front_default
         question.appendChild(createPoke('pokemon3',sprites,'re3'))
@@ -300,4 +301,3 @@ triviaContainer.addEventListener('click',(e)=>{
         })
     }
 })
-
