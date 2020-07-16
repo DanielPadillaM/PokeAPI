@@ -1,4 +1,6 @@
-import '../sass/main.scss'
+import '../sass/main.scss';
+import {startTrivia} from './components/startTrivia';
+
 let pokemonOne = document.querySelector('.randomPokemon__one');
 let pokemonTwo = document.querySelector('.randomPokemon__two');
 let pokemonThree = document.querySelector('.randomPokemon__three');
@@ -180,124 +182,12 @@ const insertPokemon = (e)=>{
         })
     }
     
-creategroup()
-
-// constructor de pokemones
-class Pokes{
-    constructor(name,id,sprites,types){
-        this.name = name
-        this.id = id
-        this.sprites = sprites
-        this.type = types
-    }
-}
-//obtener numero random
-const randonNumber= (min, max)=> Math.round(Math.random() * (max - min) + min);
-
-//trivia variables
-const triviaContainer = document.querySelector('.pokemonTrivia');
-const fireType = 'https://pokeapi.co/api/v2/type/10/';
-const grassType = "https://pokeapi.co/api/v2/type/12/";
-const waterType = "https://pokeapi.co/api/v2/type/11/";
-const triviaButton = document.querySelector('.pokemonTrivia__button');
-const triviaStart = document.querySelector('.pokemonTrivia__container');
-
-//Obtener pokemon random con url de tipo
-const randomPokemonType = (e)=>{
-    return axios.get(e)
-    .then((e)=>{
-        const pokeIndex = e.data.pokemon.length-1;
-        const randomPokemon = randonNumber(0,pokeIndex)
-        const randomUrl = e.data.pokemon[randomPokemon].pokemon.url
-        return axios.get(randomUrl)
-        .then((res)=>{
-            let pokemon
-            const name = res.data.name;
-            const id = res.data.id;
-            const sprites = res.data.sprites;
-            const types = res.data.types[0].type.name;
-            return pokemon = new Pokes(name,id,sprites,types);
-            
-        })
-    })
-}
+    creategroup()
 
 
-//poke preguntas
-
-const createPoke= (className,img,e)=>{
-    let div = document.createElement('div')
-    div.classList.add(className)
-    let image = document.createElement('img')
-    image.setAttribute('src',img)
-    image.classList.add(e)
-    div.appendChild(image)
-    return div
-}
-
-// preguntas
-const typeQuestion = (e)=>{
-    const question = document.createElement('div')
-    question.classList.add('pregunta1')
-    const questionTitle = document.createElement('h2')
-    const answer = document.createElement('p')
-    answer.classList.add('respuesta')
-    questionTitle.classList.add('pregunta1__title')
-    questionTitle.textContent= e
-    question.appendChild(questionTitle)
-    question.appendChild(answer)
-
-    randomPokemonType(fireType)
-    .then((e)=>{
-    let sprites = e.sprites.front_default
-    question.appendChild(createPoke('pokemon1',sprites,'re2'))
-    })
-
-    randomPokemonType(grassType)
-    .then((e)=>{
-        let sprites = e.sprites.front_default
-        question.appendChild(createPoke('pokemon2',sprites,'re1'))
-        })
-        randomPokemonType(waterType)
-    .then((e)=>{
-        let sprites = e.sprites.front_default
-        question.appendChild(createPoke('pokemon3',sprites,'re3'))
-        })
-        triviaContainer.appendChild(question)
-}
-
-// eventos click
-triviaButton.addEventListener('click',()=>{
-    triviaStart.remove()
-    typeQuestion('Cual de estos Pokemones es tipo Planta')
-})
 
 
-triviaContainer.addEventListener('click',(e)=>{
-    if(e.target.classList.contains('re1')){
-    let result = document.querySelector('.respuesta')
-    result.textContent="Muy bien respuesta correcta!, fue muy facil sigamos con la siguiente"
-    result.addEventListener('click',()=>{
-        let a = document.querySelector('.pregunta1')
-        a.remove()
-        typeQuestion('Cual de estos Pokemones es tipo Fuego')
-    })
-    }
-    else if (e.target.classList.contains('re2')){
-        let result = document.querySelector('.respuesta')
-        result.textContent="Genial podemos seguir con la proxima!"
-        result.addEventListener('click',()=>{
-            let a = document.querySelector('.pregunta1')
-            a.remove()
-            typeQuestion('Cual de estos Pokemones es tipo Agua')
-        })
-    }
-    else if(e.target.classList.contains('re3')){
-        let result = document.querySelector('.respuesta')
-        result.textContent="manejas bien los tipos veamos que sigue!"
-        result.addEventListener('click',()=>{
-            let a = document.querySelector('.pregunta1')
-            a.remove()
-        })
-    }
-})
+
+
+
+
