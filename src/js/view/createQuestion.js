@@ -1,4 +1,3 @@
-import {randonNumber} from '../models/randomPType';
 import {pokemonImageContainer} from './pokemonImageContainer';
 import {URL} from '../models/URL';
 import {randomPokemonType} from '../models/randomPType'

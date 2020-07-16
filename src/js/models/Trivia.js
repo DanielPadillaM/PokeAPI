@@ -1,23 +1,27 @@
 import {createQuestion} from "../view/createQuestion"
+import {QUESTIONS} from './questions'
+import {WELCOME} from './triviaConst'
+import {WelcomeText} from './triviaConst'
+import {StartText} from './triviaConst'
 export const triviaStart = document.querySelector('.pokemonTrivia__container');
 export class Trivia {
     constructor(parent){
-        const pokemonTrivia__title = document.createElement('h1')
-        pokemonTrivia__title.classList.add("pokemonTrivia__title")
-        pokemonTrivia__title.textContent= 'Bienvenido a la trivia Pokemon'
-        const pokemonTrivia__text = document.createElement('p');
-        pokemonTrivia__text.classList.add('pokemonTrivia__text')
-        pokemonTrivia__text.textContent = "Puedes responder correctamente las siguientes preguntas?"
+        const pokemonTriviaTitle = document.createElement('h1')
+        pokemonTriviaTitle.classList.add("pokemonTrivia__title")
+        pokemonTriviaTitle.textContent= WELCOME
+        const pokemonTriviaText = document.createElement('p');
+        pokemonTriviaText.classList.add('pokemonTrivia__text')
+        pokemonTriviaText.textContent = WelcomeText
         const triviaButton = document.createElement('button');
         triviaButton.classList.add('pokemonTrivia__button');
-        triviaButton.textContent= 'Iniciar Trivia Pokemon'
+        triviaButton.textContent= StartText
         triviaButton.addEventListener('click',()=>{
             triviaStart.remove();
-            createQuestion('Cual de estos Pokemones es tipo Planta');
+            createQuestion(QUESTIONS.one);
         })
         this.startButton = triviaButton
-        parent.appendChild(pokemonTrivia__title)
-        parent.appendChild(pokemonTrivia__text)
+        parent.appendChild(pokemonTriviaTitle)
+        parent.appendChild(pokemonTriviaText)
         parent.appendChild(triviaButton)
     }
 }

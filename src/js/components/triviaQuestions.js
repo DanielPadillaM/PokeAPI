@@ -1,17 +1,18 @@
-import {createQuestion} from '../view/createQuestion';
+import {QUESTIONS} from '../models/questions';
+import {CONGRATULATIONS} from '../models/congratulations';
 import {Pregunta} from '../models/Pregunta';
 
 export const triviaContainer = document.querySelector('.pokemonTrivia');
 triviaContainer.addEventListener('click',(event)=>{
 
     let questionTitle = document.querySelector('.pregunta1__title')
-    if(event.target.classList.contains('re1') && questionTitle.textContent == 'Cual de estos Pokemones es tipo Planta'){
-        let preguntaUno = new Pregunta("Muy bien respuesta correcta!, fue muy facil sigamos con la siguiente",'Cual de estos Pokemones es tipo Fuego');
+    if(event.target.classList.contains('re1') && questionTitle.textContent == QUESTIONS.one){
+        new Pregunta(CONGRATULATIONS.one,QUESTIONS.two);
     }
-    else if (event.target.classList.contains('re2') && questionTitle.textContent == 'Cual de estos Pokemones es tipo Fuego'){
-        let preguntaDos = new Pregunta("Genial podemos seguir con la proxima!","Cual de estos Pokemones es tipo Agua")
+    else if (event.target.classList.contains('re2') && questionTitle.textContent == QUESTIONS.two){
+        new Pregunta(CONGRATULATIONS.two,QUESTIONS.three)
     }
-    else if(event.target.classList.contains('re3') && questionTitle.textContent == "Cual de estos Pokemones es tipo Agua"){
-        let preguntaTres = new Pregunta ("manejas bien los tipos veamos que sigue!","Cual de estos Pokemones es tipo Planta")
+    else if(event.target.classList.contains('re3') && questionTitle.textContent == QUESTIONS.three){
+        new Pregunta (CONGRATULATIONS.three,QUESTIONS.one)
     }
 })
