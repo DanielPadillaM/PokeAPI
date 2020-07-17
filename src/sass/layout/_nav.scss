@@ -1,9 +1,9 @@
 nav{
-    grid-column: 2/3;
-    grid-row: 1/2;
-}
-.barra{
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.list{
     list-style: none;
     margin: 30px 5px;
     li{
@@ -14,7 +14,7 @@ nav{
             text-decoration: none;
             color: $two;
             &:hover{
-                color: #fff;
+                color: $primary;
             }
         }
     }
@@ -23,8 +23,6 @@ nav{
 .logo{
     cursor: pointer;
     width: 50px;
-    grid-column: 1/2;
-    grid-row: 1/2;
-    margin: auto;
+    margin: auto 10px;
 
 }

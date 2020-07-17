@@ -1,4 +1,8 @@
-import '../sass/main.scss'
+import '../sass/main.scss';
+import {startTrivia} from './components/startTrivia';
+import {createPokemonfield} from './models/pokemonBattle/pokemonField';
+
+
 let pokemonOne = document.querySelector('.randomPokemon__one');
 let pokemonTwo = document.querySelector('.randomPokemon__two');
 let pokemonThree = document.querySelector('.randomPokemon__three');
@@ -180,4 +184,13 @@ const insertPokemon = (e)=>{
         })
     }
     
-creategroup()
+    creategroup()
+    createPokemonfield()
+
+
+
+
+
+
+
+
