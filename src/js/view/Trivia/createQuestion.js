@@ -1,15 +1,15 @@
-import {pokemonImageContainer} from './pokemonImageContainer';
-import {URL} from '../models/URL';
-import {randomPokemonType} from '../models/randomPType'
-import {triviaContainer} from '../components/triviaQuestions';
+import {pokemonImageContainer} from '../pokemonImageContainer';
+import {URL} from '../../models/URL';
+import {randomPokemonType} from '../../models/randomPType'
+import {triviaBody} from '../../components/trivia/triviaBody';
 
 export const createQuestion = (title)=>{
     const question = document.createElement('div')
-    question.classList.add('pregunta1')
+    question.classList.add('question')
     const questionTitle = document.createElement('h2')
     const answer = document.createElement('p')
-    answer.classList.add('respuesta')
-    questionTitle.classList.add('pregunta1__title')
+    answer.classList.add('answer')
+    questionTitle.classList.add('question__title')
     questionTitle.textContent= title
     question.appendChild(questionTitle)
     question.appendChild(answer)
@@ -30,5 +30,7 @@ export const createQuestion = (title)=>{
         let sprites = pokemon.sprites.front_default
         question.appendChild(pokemonImageContainer('pokemon3',sprites,'re3'))
         })
-        triviaContainer.appendChild(question)
+        triviaBody.appendChild(question)
 }
+
+
